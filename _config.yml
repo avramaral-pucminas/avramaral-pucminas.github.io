@@ -6,7 +6,7 @@ url: "https://rohanchandra.github.io/"
 theme_settings:
   # Meta
   title: André Victor
-  avatar: 
+  avatar: assets/img/avatar.png
   favicon: assets/favicon.ico
   gravatar: # Email MD5 hash
   description: "A personal blog in which I will share my discoveries regarding to data science." # used by search engines
