@@ -1,0 +1,115 @@
+---
+---
+
+@import "type-theme";
+
+article header{
+  margin-bottom: 3%;
+}
+
+article section.post-content p{
+  text-align: justify
+}
+
+article.feature-image header{
+  padding: 4.18% 20%;
+}
+
+article.feature-image header h1{
+  font-size: 2.25em
+}
+
+div.highlighter-rouge{
+  margin-top: -20px;
+  margin-bottom: -20px;
+  padding: 5px 15px;
+  font-size: 0.6em;
+  line-height: 1.8
+}
+
+div.language-python, div.language-R{
+  border: solid 0.5px #D4D4D4;
+  background-color: #FCFCFC;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px 15px;
+  font-size: 0.6em;
+  line-height: 1.8
+}
+
+table{
+  font-size: 0.6em;
+}
+
+span.math-display{
+  text-align: center;
+}
+
+header.site-header ul li a{
+  color: #383838;
+  margin-right: 20px;
+}
+
+header.site-header ul li a:hover{
+  color: #759FD1;
+}
+
+footer div.tags{
+  text-align: center;
+}
+
+footer.site-footer p.text{
+  float: right
+}
+
+footer.site-footer ul{
+  list-style-type: none;
+  font-size: 1.25em
+}
+
+footer.site-footer ul li{
+  display: inline;
+  margin-right: 10px;
+}
+
+footer.site-footer ul li:last-child{
+  margin-right: 0;
+}
+
+footer.site-footer ul li a{
+  color: #383838;
+}
+
+footer.site-footer ul li a:hover{
+  color: #759FD1; // it was #1ABC9C
+}
+
+footer.site-footer ul div.float-left{
+  float: left;
+}
+
+footer.site-footer ul div.float-right{
+  float: right;
+}
+
+footer.site-footer p.clear{
+  clear: both;
+  width: 100%;
+  margin: 20px 0 0 0;
+}
+
+div.search div#search-results div.meta{
+  margin-bottom: 15px;
+}
+
+div.search div#search-results p{
+  margin-bottom: 60px;
+}
+
+section.post-content h2.tag-title{
+  margin-bottom: 5px;
+}
+
+section.post-content div.tagged-post{
+  margin-bottom: 15px
+}

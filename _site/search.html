@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>Search page | André Victor</title>
+	<meta name="description" content="A personal blog in which I will share my discoveries regarding to data science.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="/search.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="André Victor" href="/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<h1 class="site-title">
+			<a href="/">André Victor</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+            <!-- Search bar -->
+            
+            <li>
+            <form action="/search.html" method="get">
+                <input type="text" id="search-box" name="query" placeholder="Search" class="">
+                <button type="submit" class="">
+                    <i class="fa fa-fw fa-search"></i>
+                </button>
+            </form>
+            </li>
+            
+		</ul>
+	</nav>
+
+</header>
+
+    <div class="content">
+      <article class="feature-image">
+  <header style="background-image: url('/assets/img/background.png')">
+    <h1 class="title"><code>Search page</code></h1>
+    
+  </header>
+  <section class="post-content"><div class="search">
+    <div id="search-results"></div>
+    <p id="not-found" style="display: none">
+        No results found.
+    </p>
+</div>
+
+
+<script>
+window.store = {
+    
+      "2017-12-30-sample-post-html": {
+        "title": "Segundo teste - jupyter notebook",
+        "tags": "test, sample",
+        "date": "December 30, 2017",
+        "author": "",
+        "category": "",
+        "content": "Aqui haverá uma pequena explicação sobre algum tópico importante para o correto entendimento de um determinado assunto. E, como referência adicional, há, também, um link para futuras pesquisas - para tal, clique aqui.Em adição, podem existir também, equações importantes, médio importantes e pouco importantes, como essa inline: , ou essa aqui que aparece em uma nova linha:import numpy  as npimport pandas as pdimport matplotlib.pyplot as plt%matplotlib inlineSeção doisAqui vai outro texto para preencher esse espaço, possibilitando, portanto, que o leitor consiga identificar elementos importantes no código, e compreender o que está, de fato, acontecendomy_array = np.array(np.arange(0, 25)).reshape(5, 5)my_arrayarray([[ 0,  1,  2,  3,  4],       [ 5,  6,  7,  8,  9],       [10, 11, 12, 13, 14],       [15, 16, 17, 18, 19],       [20, 21, 22, 23, 24]])my_array.flatten()array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,       17, 18, 19, 20, 21, 22, 23, 24])data = {'1st column': pd.Series([1, 2, 3], index = ['A', 'B', 'C']),        '2nd column': pd.Series([4, 5, 6], index = ['A', 'B', 'D'])}my_df = pd.DataFrame(data)my_df                  1st column      2nd column                  A      1.0      4.0              B      2.0      5.0              C      3.0      NaN              D      NaN      6.0      print(\"Hello, world!\")Hello, world!Seção trêsAqui vai alguma coisa do matplotlib.pyplot:  Bullet 1  Bullet 2          Bullet 2a      Bullet 2b        Bullet 3  One thing was certain, that the white kitten had had nothingto do with it – it was the black kitten’s fault entirely. Forthe white kitten had been having its face washed by the old cat,for the last quarter of an hour (and bearing it pretty well,considering) so you see that it couldn’t have had any hand inthe mischief. Lewis Carroll, Through the LookingGlassimport numpy as npimport matplotlib.pyplot as pltimport matplotlib.patches as patchesimport matplotlib.path as pathimport matplotlib.animation as animationfig, ax = plt.subplots()# histogram our data with numpydata = np.random.randn(1000)n, bins = np.histogram(data, 100)# get the corners of the rectangles for the histogramleft = np.array(bins[:-1])right = np.array(bins[1:])bottom = np.zeros(len(left))top = bottom + nnrects = len(left)# here comes the tricky part -- we have to set up the vertex and path# codes arrays using moveto, lineto and closepoly# for each rect: 1 for the MOVETO, 3 for the LINETO, 1 for the# CLOSEPOLY; the vert for the closepoly is ignored but we still need# it to keep the codes aligned with the verticesnverts = nrects*(1 + 3 + 1)verts = np.zeros((nverts, 2))codes = np.ones(nverts, int) * path.Path.LINETOcodes[0::5] = path.Path.MOVETOcodes[4::5] = path.Path.CLOSEPOLYverts[0::5, 0] = leftverts[0::5, 1] = bottomverts[1::5, 0] = leftverts[1::5, 1] = topverts[2::5, 0] = rightverts[2::5, 1] = topverts[3::5, 0] = rightverts[3::5, 1] = bottombarpath = path.Path(verts, codes)patch = patches.PathPatch(    barpath, facecolor='green', edgecolor='yellow', alpha=0.5)ax.add_patch(patch)ax.set_xlim(left[0], right[-1])ax.set_ylim(bottom.min(), top.max())def animate(i):    # simulate new data coming in    data = np.random.randn(1000)    n, bins = np.histogram(data, 100)    top = bottom + n    verts[1::5, 1] = top    verts[2::5, 1] = top    return [patch, ]ani = animation.FuncAnimation(fig, animate, 100, repeat=False, blit=True)plt.show()",
+         //"url": "//2017/12/30/sample-post.html"
+        "url": "/2017/12/30/sample-post.html"
+      }
+      ,
+    
+      "2017-12-30-r-notebook-html": {
+        "title": "R Notebook",
+        "tags": "test, sample",
+        "date": "December 30, 2017",
+        "author": "",
+        "category": "",
+        "content": "Caros amigos, a execução dos pontos do programa ainda não demonstrou convincentemente que vai participar na mudança das posturas dos órgãos dirigentes com relação às suas atribuições. Acima de tudo, é fundamental ressaltar que a hegemonia do ambiente político aponta para a melhoria das diversas correntes de pensamento. Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se a contínua expansão de nossa atividade exige a precisão e a definição dos índices pretendidos. É claro que o fenômeno da Internet auxilia a preparação e a composição do sistema de participação geral.x &lt;- rnorm(10000000)hist(x, col=\"blue\", breaks=1000)print(sample(1:3))print(sample(1:3, size=3, replace=FALSE))  # same as previous lineprint(sample(c(2,5,3), size=4, replace=TRUE))print(sample(1:2, size=10, prob=c(1,3), replace=TRUE))[1] 3 1 2[1] 3 2 1[1] 2 5 2 5 [1] 2 1 2 2 1 2 2 2 1 2readinteger &lt;- function(){  n &lt;- readline(prompt=\"Enter an integer: \")  return(as.integer(n))}print(readinteger())Enter an integer: 5[1] 5x = matrix(1:6,3,2)x= cbind(1,x)y = matrix(c(1,-1,1),dim(x)[1],1)iter = 100alpha = 0.01m = nrow(y)tat = matrix(c(rep(0,ncol(x))),1,ncol(x))cost = matrix(c(0),iter,1)for(i in 1:iter){  predict = 1 / (1 + exp(-x %*% t(tat)))  for(j in 1:ncol(x))  {    errors = (predict - y) * x[,j]    tat[,j] = tat[,j] - alpha * (1.0 / m) * sum(errors)  }  predict = 1 / (1 + exp(-x %*% t(tat)))  cost[i,] = sum(-y*log(predict) - (1-y)*log(1-predict))/m  if (i &gt; 1) {    if (cost[i] &gt; cost[i-1]) {      break    }  }}t(tat)plot(cost)\t-0.02703496\t-0.03414864\t-0.11525352smokerData &lt;- read.csv(file='http://bit.ly/imdbratings',sep=',',header=T)summary(smokerData)  star_rating                               title       content_rating Min.   :7.40   Dracula                        :  2   R        :460    1st Qu.:7.60   Les Miserables                 :  2   PG-13    :189    Median :7.80   The Girl with the Dragon Tattoo:  2   PG       :123    Mean   :7.89   True Grit                      :  2   NOT RATED: 65    3rd Qu.:8.10   (500) Days of Summer           :  1   APPROVED : 47    Max.   :9.30   [Rec]                          :  1   UNRATED  : 38                   (Other)                        :969   (Other)  : 57          genre        duration   Drama    :278   Min.   : 64   Comedy   :156   1st Qu.:102   Action   :136   Median :117   Crime    :124   Mean   :121   Biography: 77   3rd Qu.:134   Adventure: 75   Max.   :242   (Other)  :133                                                                     actors_list [u'Daniel Radcliffe', u'Emma Watson', u'Rupert Grint']    :  6   [u'Mark Hamill', u'Harrison Ford', u'Carrie Fisher']      :  3   [u'Ian McKellen', u'Martin Freeman', u'Richard Armitage'] :  2   [u'Michael J. Fox', u'Christopher Lloyd', u'Lea Thompson']:  2   [u'Tom Hanks', u'Tim Allen', u'Joan Cusack']              :  2   [u'Aamir Khan', u'Gracy Singh', u'Rachel Shelley']        :  1   (Other)                                                   :963  smokerData      star_rating    title    content_rating    genre    duration    actors_list  \t9.3                                                                  The Shawshank Redemption                                             R                                                                    Crime                                                                142                                                                  [u'Tim Robbins', u'Morgan Freeman', u'Bob Gunton']                   \t9.2                                                                  The Godfather                                                        R                                                                    Crime                                                                175                                                                  [u'Marlon Brando', u'Al Pacino', u'James Caan']                      \t9.1                                                                  The Godfather: Part II                                               R                                                                    Crime                                                                200                                                                  [u'Al Pacino', u'Robert De Niro', u'Robert Duvall']                  \t9.0                                                                  The Dark Knight                                                      PG-13                                                                Action                                                               152                                                                  [u'Christian Bale', u'Heath Ledger', u'Aaron Eckhart']               \t8.9                                                                  Pulp Fiction                                                         R                                                                    Crime                                                                154                                                                  [u'John Travolta', u'Uma Thurman', u'Samuel L. Jackson']             \t8.9                                                                  12 Angry Men                                                         NOT RATED                                                            Drama                                                                 96                                                                  [u'Henry Fonda', u'Lee J. Cobb', u'Martin Balsam']                   \t8.9                                                                  The Good, the Bad and the Ugly                                       NOT RATED                                                            Western                                                              161                                                                  [u'Clint Eastwood', u'Eli Wallach', u'Lee Van Cleef']                \t8.9                                                                  The Lord of the Rings: The Return of the King                        PG-13                                                                Adventure                                                            201                                                                  [u'Elijah Wood', u'Viggo Mortensen', u'Ian McKellen']                \t8.9                                                                  Schindler's List                                                     R                                                                    Biography                                                            195                                                                  [u'Liam Neeson', u'Ralph Fiennes', u'Ben Kingsley']                  \t8.9                                                                  Fight Club                                                           R                                                                    Drama                                                                139                                                                  [u'Brad Pitt', u'Edward Norton', u'Helena Bonham Carter']            \t8.8                                                                  The Lord of the Rings: The Fellowship of the Ring                    PG-13                                                                Adventure                                                            178                                                                  [u'Elijah Wood', u'Ian McKellen', u'Orlando Bloom']                  \t8.8                                                                  Inception                                                            PG-13                                                                Action                                                               148                                                                  [u'Leonardo DiCaprio', u'Joseph Gordon-Levitt', u'Ellen Page']       \t8.8                                                                  Star Wars: Episode V - The Empire Strikes Back                       PG                                                                   Action                                                               124                                                                  [u'Mark Hamill', u'Harrison Ford', u'Carrie Fisher']                 \t8.8                                                                  Forrest Gump                                                         PG-13                                                                Drama                                                                142                                                                  [u'Tom Hanks', u'Robin Wright', u'Gary Sinise']                      \t8.8                                                                  The Lord of the Rings: The Two Towers                                PG-13                                                                Adventure                                                            179                                                                  [u'Elijah Wood', u'Ian McKellen', u'Viggo Mortensen']                \t8.7                                                                  Interstellar                                                         PG-13                                                                Adventure                                                            169                                                                  [u'Matthew McConaughey', u'Anne Hathaway', u'Jessica Chastain']      \t8.7                                                                  One Flew Over the Cuckoo's Nest                                      R                                                                    Drama                                                                133                                                                  [u'Jack Nicholson', u'Louise Fletcher', u'Michael Berryman']         \t8.7                                                                  Seven Samurai                                                        UNRATED                                                              Drama                                                                207                                                                  [u'Toshir\\xf4 Mifune', u'Takashi Shimura', u'Keiko Tsushima']       \t8.7                                                                  Goodfellas                                                           R                                                                    Biography                                                            146                                                                  [u'Robert De Niro', u'Ray Liotta', u'Joe Pesci']                     \t8.7                                                                  Star Wars                                                            PG                                                                   Action                                                               121                                                                  [u'Mark Hamill', u'Harrison Ford', u'Carrie Fisher']                 \t8.7                                                                  The Matrix                                                           R                                                                    Action                                                               136                                                                  [u'Keanu Reeves', u'Laurence Fishburne', u'Carrie-Anne Moss']        \t8.7                                                                  City of God                                                          R                                                                    Crime                                                                130                                                                  [u'Alexandre Rodrigues', u'Matheus Nachtergaele', u'Leandro Firmino']\t8.7                                                                  It's a Wonderful Life                                                APPROVED                                                             Drama                                                                130                                                                  [u'James Stewart', u'Donna Reed', u'Lionel Barrymore']               \t8.7                                                                  The Usual Suspects                                                   R                                                                    Crime                                                                106                                                                  [u'Kevin Spacey', u'Gabriel Byrne', u'Chazz Palminteri']             \t8.7                                                                  Se7en                                                                R                                                                    Drama                                                                127                                                                  [u'Morgan Freeman', u'Brad Pitt', u'Kevin Spacey']                   \t8.6                                                                  Life Is Beautiful                                                    PG-13                                                                Comedy                                                               116                                                                  [u'Roberto Benigni', u'Nicoletta Braschi', u'Giorgio Cantarini']     \t8.6                                                                  Once Upon a Time in the West                                         PG-13                                                                Western                                                              175                                                                  [u'Henry Fonda', u'Charles Bronson', u'Claudia Cardinale']           \t8.6                                                                  The Silence of the Lambs                                             R                                                                    Drama                                                                118                                                                  [u'Jodie Foster', u'Anthony Hopkins', u'Lawrence A. Bonney']         \t8.6                                                                  Leon: The Professional                                               R                                                                    Crime                                                                110                                                                  [u'Jean Reno', u'Gary Oldman', u'Natalie Portman']                   \t8.6                                                                  City Lights                                                          PASSED                                                               Comedy                                                                87                                                                  [u'Charles Chaplin', u'Virginia Cherrill', u'Florence Lee']          \t⋮⋮⋮⋮⋮⋮\t7.4                                                                     Home Alone                                                              PG                                                                      Comedy                                                                  103                                                                     [u'Macaulay Culkin', u'Joe Pesci', u'Daniel Stern']                     \t7.4                                                                     Bound                                                                   R                                                                       Crime                                                                   108                                                                     [u'Jennifer Tilly', u'Gina Gershon', u'Joe Pantoliano']                 \t7.4                                                                     Sleepy Hollow                                                           R                                                                       Drama                                                                   105                                                                     [u'Johnny Depp', u'Christina Ricci', u'Miranda Richardson']             \t7.4                                                                     Pirate Radio                                                            R                                                                       Comedy                                                                  117                                                                     [u'Philip Seymour Hoffman', u'Bill Nighy', u'Nick Frost']               \t7.4                                                                     The NeverEnding Story                                                   PG                                                                      Adventure                                                               102                                                                     [u'Noah Hathaway', u'Barret Oliver', u'Tami Stronach']                  \t7.4                                                                     X-Men                                                                   PG-13                                                                   Action                                                                  104                                                                     [u'Patrick Stewart', u'Hugh Jackman', u'Ian McKellen']                  \t7.4                                                                     Zero Dark Thirty                                                        R                                                                       Drama                                                                   157                                                                     [u'Jessica Chastain', u'Joel Edgerton', u'Chris Pratt']                 \t7.4                                                                     Manhattan Murder Mystery                                                PG                                                                      Comedy                                                                  104                                                                     [u'Woody Allen', u'Diane Keaton', u'Jerry Adler']                       \t7.4                                                                     National Lampoon's Vacation                                             R                                                                       Comedy                                                                   98                                                                     [u'Chevy Chase', u\"Beverly D'Angelo\", u'Imogene Coca']                  \t7.4                                                                     My Sister's Keeper                                                      PG-13                                                                   Drama                                                                   109                                                                     [u'Cameron Diaz', u'Abigail Breslin', u'Alec Baldwin']                  \t7.4                                                                     Deconstructing Harry                                                    R                                                                       Comedy                                                                   96                                                                     [u'Woody Allen', u'Judy Davis', u'Julia Louis-Dreyfus']                 \t7.4                                                                     The Way Way Back                                                        PG-13                                                                   Comedy                                                                  103                                                                     [u'Steve Carell', u'Toni Collette', u'Allison Janney']                  \t7.4                                                                     Capote                                                                  R                                                                       Biography                                                               114                                                                     [u'Philip Seymour Hoffman', u'Clifton Collins Jr.', u'Catherine Keener']\t7.4                                                                     Driving Miss Daisy                                                      PG                                                                      Comedy                                                                   99                                                                     [u'Morgan Freeman', u'Jessica Tandy', u'Dan Aykroyd']                   \t7.4                                                                     La Femme Nikita                                                         R                                                                       Action                                                                  118                                                                     [u'Anne Parillaud', u'Marc Duret', u'Patrick Fontana']                  \t7.4                                                                     Lincoln                                                                 PG-13                                                                   Biography                                                               150                                                                     [u'Daniel Day-Lewis', u'Sally Field', u'David Strathairn']              \t7.4                                                                     Limitless                                                               PG-13                                                                   Mystery                                                                 105                                                                     [u'Bradley Cooper', u'Anna Friel', u'Abbie Cornish']                    \t7.4                                                                     The Simpsons Movie                                                      PG-13                                                                   Animation                                                                87                                                                     [u'Dan Castellaneta', u'Julie Kavner', u'Nancy Cartwright']             \t7.4                                                                     The Rock                                                                R                                                                       Action                                                                  136                                                                     [u'Sean Connery', u'Nicolas Cage', u'Ed Harris']                        \t7.4                                                                     The English Patient                                                     R                                                                       Drama                                                                   162                                                                     [u'Ralph Fiennes', u'Juliette Binoche', u'Willem Dafoe']                \t7.4                                                                     Law Abiding Citizen                                                     R                                                                       Crime                                                                   109                                                                     [u'Gerard Butler', u'Jamie Foxx', u'Leslie Bibb']                       \t7.4                                                                     Wonder Boys                                                             R                                                                       Drama                                                                   107                                                                     [u'Michael Douglas', u'Tobey Maguire', u'Frances McDormand']            \t7.4                                                                     Death at a Funeral                                                      R                                                                       Comedy                                                                   90                                                                     [u'Matthew Macfadyen', u'Peter Dinklage', u'Ewen Bremner']              \t7.4                                                                     Blue Valentine                                                          NC-17                                                                   Drama                                                                   112                                                                     [u'Ryan Gosling', u'Michelle Williams', u'John Doman']                  \t7.4                                                                     The Cider House Rules                                                   PG-13                                                                   Drama                                                                   126                                                                     [u'Tobey Maguire', u'Charlize Theron', u'Michael Caine']                \t7.4                                                                     Tootsie                                                                 PG                                                                      Comedy                                                                  116                                                                     [u'Dustin Hoffman', u'Jessica Lange', u'Teri Garr']                     \t7.4                                                                     Back to the Future Part III                                             PG                                                                      Adventure                                                               118                                                                     [u'Michael J. Fox', u'Christopher Lloyd', u'Mary Steenburgen']          \t7.4                                                                     Master and Commander: The Far Side of the World                         PG-13                                                                   Action                                                                  138                                                                     [u'Russell Crowe', u'Paul Bettany', u'Billy Boyd']                      \t7.4                                                                     Poltergeist                                                             PG                                                                      Horror                                                                  114                                                                     [u'JoBeth Williams', u\"Heather O'Rourke\", u'Craig T. Nelson']           \t7.4                                                                     Wall Street                                                             R                                                                       Crime                                                                   126                                                                     [u'Charlie Sheen', u'Michael Douglas', u'Tamara Tunie']                 ",
+         //"url": "//2017/12/30/R-notebook.html"
+        "url": "/2017/12/30/R-notebook.html"
+      }
+      ,
+    
+      "2017-11-30-jupyter-notebook-html": {
+        "title": "Jupyter Notebook",
+        "tags": "test, sample",
+        "date": "November 30, 2017",
+        "author": "",
+        "category": "",
+        "content": "Jupyter Notebook Example - H2Aqui vai o subtítulo - H3Esse é o meu parágrafo, e aqui eu vou colocar um texto grande para experimentar como ele se comporta em um tema Jekyll. Vamos ver o que dá, testando-no in the real world: $f(x) = x² + x + 2$import pandas as pdimport numpy  as npimport matplotlib.pyplot as plt%matplotlib inlineprint(\"Pandas version:\", pd.__version__)print(\"Numpy  version:\", np.__version__)Pandas version: 0.20.3Numpy  version: 1.13.3df = pd.read_csv('http://bit.ly/drinksbycountry')df.head()                  country      beer_servings      spirit_servings      wine_servings      total_litres_of_pure_alcohol      continent                  0      Afghanistan      0      0      0      0.0      Asia              1      Albania      89      132      54      4.9      Europe              2      Algeria      25      0      14      0.7      Africa              3      Andorra      245      138      312      12.4      Europe              4      Angola      217      57      45      5.9      Africa      prop_cycle = plt.rcParams['axes.prop_cycle']colors = prop_cycle.by_key()['color']lwbase = plt.rcParams['lines.linewidth']thin = float('%.1f' % (lwbase / 2))thick = lwbase * 3fig, axs = plt.subplots(nrows=2, ncols=2, sharex=True, sharey=True)for icol in range(2):    if icol == 0:        lwx, lwy = thin, lwbase    else:        lwx, lwy = lwbase, thick    for irow in range(2):        for i, color in enumerate(colors):            axs[irow, icol].axhline(i, color=color, lw=lwx)            axs[irow, icol].axvline(i, color=color, lw=lwy)    axs[1, icol].set_facecolor('k')    axs[1, icol].xaxis.set_ticks(np.arange(0, 10, 2))    axs[0, icol].set_title('line widths (pts): %.1f, %.1f' % (lwx, lwy),                           fontsize='medium')for irow in range(2):    axs[irow, 0].yaxis.set_ticks(np.arange(0, 10, 2))fig.suptitle('Colors in the default prop_cycle', fontsize='large')plt.show()                   d      d                                                                                         5      10                                                        ",
+         //"url": "//2017/11/30/jupyter-notebook.html"
+        "url": "/2017/11/30/jupyter-notebook.html"
+      }
+      ,
+    
+      "2014-11-29-feature-images3-html": {
+        "title": "Feature images",
+        "tags": "",
+        "date": "November 29, 2014",
+        "author": "",
+        "category": "",
+        "content": "This is an example of a post which includes a feature image specified in the front matter of the post. The feature image spans the full-width of the page, and is shown with the title on permalink pages.",
+         //"url": "//2014/11/29/feature-images3.html"
+        "url": "/2014/11/29/feature-images3.html"
+      }
+      ,
+    
+      "2014-11-29-feature-images2-html": {
+        "title": "Feature images",
+        "tags": "",
+        "date": "November 29, 2014",
+        "author": "",
+        "category": "",
+        "content": "This is an example of a post which includes a feature image specified in the front matter of the post. The feature image spans the full-width of the page, and is shown with the title on permalink pages.",
+         //"url": "//2014/11/29/feature-images2.html"
+        "url": "/2014/11/29/feature-images2.html"
+      }
+      ,
+    
+      "2014-11-29-feature-images-html": {
+        "title": "Feature images",
+        "tags": "",
+        "date": "November 29, 2014",
+        "author": "",
+        "category": "",
+        "content": "This is an example of a post which includes a feature image specified in the front matter of the post. The feature image spans the full-width of the page, and is shown with the title on permalink pages.",
+         //"url": "//2014/11/29/feature-images.html"
+        "url": "/2014/11/29/feature-images.html"
+      }
+      ,
+    
+      "2014-11-28-markdown-and-html-html": {
+        "title": "Markdown and HTML",
+        "tags": "example, html",
+        "date": "November 28, 2014",
+        "author": "",
+        "category": "",
+        "content": "Jekyll supports the use of Markdown with inline HTML tags which makes it easier to quickly write posts with Jekyll, without having to worry too much about text formatting. A sample of the formatting follows.Tables have also been extended from Markdown:            First Header      Second Header                  Content Cell      Content Cell              Content Cell      Content Cell      Here’s an example of an image, which is included using Markdown:Highlighting for code in Jekyll is done using Pygments or Rouge. This theme makes use of Rouge by default.// count to tenfor (var i = 1; i &lt;= 10; i++) {    console.log(i);}// count to twentyvar j = 0;while (j &lt; 20) {    j++;    console.log(j);}Type Theme uses KaTeX to display maths. Equations such as  can be displayed inline.Alternatively, they can be shown on a new line:",
+         //"url": "//2014/11/28/markdown-and-html.html"
+        "url": "/2014/11/28/markdown-and-html.html"
+      }
+      
+    
+  };
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/0.7.1/lunr.min.js"></script>
+<script src="/assets/js/search.js"></script>
+</section>
+</article>
+
+    </div>
+    
+<script src="/assets/js/katex_init.js"></script>
+
+
+
+<footer class="site-footer">
+	<ul>
+		<div class="float-left">
+			<!-- Social icons from Font Awesome, if enabled  -->
+			
+
+
+<li>
+	<a href="mailto:avramaral@gmail.com" title="Email">
+		<i class="fa fa-fw fa-envelope"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://www.facebook.com/facebook" title="Follow on Facebook">
+		<i class="fa fa-fw fa-facebook"></i>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="https://www.flickr.com/photos/flicker" title="Follow on Flickr">
+		<i class="fa fa-fw fa-flickr"></i>
+	</a>
+</li>
+
+
+
+<li>
+	<a href="https://github.com/avramaral" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/twitter" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+		</div>
+		<div class="float-right">
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					About
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	</ul>
+	<p class="text clear">Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/rohanchandra/type-theme">Type Theme</a>
+</p>
+</footer>
+
+
+  </body>
+</html>
