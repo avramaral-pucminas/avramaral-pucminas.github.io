@@ -10,6 +10,11 @@
 			{% include icons.html %}
 		</div>
 		<div class="float-right">
+			<li>
+				<a class="page-link" href="{{ site.baseurl }}/">
+					Home
+				</a>
+			</li>
 			{% for page in site.pages %}
 			{% if page.title and page.hide != true %}
 			<li>
